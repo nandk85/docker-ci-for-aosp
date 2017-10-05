@@ -7,7 +7,7 @@ RUN apt-get install -y git-core gnupg flex bison gperf build-essential zip curl 
 RUN apt-get install -y gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev
 RUN apt-get install -y x11proto-core-dev libx11-dev lib32readline-gplv2-dev lib32z1-dev
 RUN apt-get install -y libxml-simple-perl libc6-dev libgl1-mesa-dev tofrodos
-RUN apt-get install -y python-markdown libxml2-utils xsltproc
+RUN apt-get install -y python-markdown libxml2-utils xsltproc openjdk-8-jdk
 
 # Add "repo" tool (used by many Yocto-based projects)
 RUN curl http://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
