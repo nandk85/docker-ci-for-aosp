@@ -1,5 +1,6 @@
 FROM ubuntu:14.04
 
+RUN add-apt-repository ppa:openjdk-r/ppa
 RUN apt-get update && apt-get -y upgrade
 
 # Install the following utilities (required by aosp build)
