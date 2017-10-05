@@ -1,7 +1,12 @@
 FROM ubuntu:14.04
 
-RUN add-apt-repository ppa:openjdk-r/ppa
+
 RUN apt-get update && apt-get -y upgrade
+RUN apt-get install -y software-properties-common
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-software-properties
+
+RUN DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:openjdk-r/ppa 
+RUN apt-get update
 
 # Install the following utilities (required by aosp build)
 RUN apt-get install -y git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev
