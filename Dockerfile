@@ -4,9 +4,9 @@ RUN apt-get update && apt-get -y upgrade
 
 # Install the following utilities (required by aosp build)
 RUN apt-get install -y git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev
-RUN apt-get install -y gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev ia32-libs
-RUN apt-get install -y x11proto-core-dev libx11-dev lib32readline-gplv2-dev lib32z-dev
-RUN apt-get install -y libxml-simple-perl libc6-dev libgl1-mesa-dev mingw32 tofrodos
+RUN apt-get install -y gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev
+RUN apt-get install -y x11proto-core-dev libx11-dev lib32readline-gplv2-dev lib32z1-dev
+RUN apt-get install -y libxml-simple-perl libc6-dev libgl1-mesa-dev tofrodos
 RUN apt-get install -y python-markdown libxml2-utils xsltproc
 
 # Add "repo" tool (used by many Yocto-based projects)
