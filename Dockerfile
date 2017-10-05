@@ -1,6 +1,5 @@
 FROM ubuntu:14.04
 
-
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y software-properties-common
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-software-properties
@@ -14,6 +13,10 @@ RUN apt-get install -y gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-de
 RUN apt-get install -y x11proto-core-dev libx11-dev lib32readline-gplv2-dev lib32z1-dev
 RUN apt-get install -y libxml-simple-perl libc6-dev libgl1-mesa-dev tofrodos
 RUN apt-get install -y python-markdown libxml2-utils xsltproc openjdk-8-jdk
+
+# do some fancy footwork to create a JAVA_HOME that's cross-architecture-safe
+RUN ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /docker-java-home
+ENV JAVA_HOME /docker-java-home
 
 # Add "repo" tool (used by many Yocto-based projects)
 RUN curl http://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
