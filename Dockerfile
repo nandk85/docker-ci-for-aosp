@@ -40,5 +40,6 @@ RUN echo -e "Host *\n\tStrictHostKeyChecking no\n" > /home/build/.ssh/config
 RUN chown -R build:build /home/build/.ssh
 
 USER build
+ENV USER build
 WORKDIR /home/build
 CMD "/bin/bash"
